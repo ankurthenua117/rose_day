@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rose Day 🌹</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffe6eb;
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+}
+
+/* floating hearts & roses */
+.floating span{
+  position:absolute;
+  font-size:30px;
+  animation: float 8s linear infinite;
+  opacity:0.7;
+}
+@keyframes float{
+  0%{ transform:translateY(110vh); opacity:0; }
+  10%{ opacity:0.7; }
+  100%{ transform:translateY(-10vh); opacity:0; }
+}
+
+/* big text on NO */
+.bigText{
+  position:fixed;
+  top:15%;
+  width:100%;
+  text-align:center;
+  font-size:26px;
+  color:#ff4d6d;
+  font-weight:bold;
+  display:none;
+  z-index:5;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  width:320px;
+  border-radius:18px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,0.25);
+  position:relative;
+  z-index:2;
+}
+
+h2{ color:#ff4d6d; }
+p{ color:#444; font-size:16px; line-height:1.5; }
+
+button{
+  padding:10px 22px;
+  border:none;
+  border-radius:20px;
+  font-size:15px;
+  cursor:pointer;
+  margin:8px;
+}
+.next{ background:#ff4d6d; color:white; }
+.no{
+  background:#eee;
+  color:#555;
+  position:relative;
+}
+
+.rose{ font-size:50px; }
+</style>
+</head>
+
+<body>
+
+<!-- floating emojis -->
+<div class="floating">
+  <span style="left:10%;animation-delay:0s;">🌹</span>
+  <span style="left:25%;animation-delay:2s;">❤️</span>
+  <span style="left:40%;animation-delay:4s;">🤍</span>
+  <span style="left:60%;animation-delay:1s;">🌸</span>
+  <span style="left:75%;animation-delay:3s;">🌹</span>
+</div>
+
+<!-- BIG WORDS -->
+<div id="bigText" class="bigText">
+  Please Radhika 🥺🌹<br>
+  thoda aage badhao na 🤍✨<br>
+  maan jao na 🌸
+</div>
+
+<div class="card">
+
+<!-- PAGE 1 -->
+<div id="p1">
+  <div class="rose">🌹❤️🌹</div>
+  <h2>Hi Radhika…</h2>
+  <p>
+    Thoda sa time lekar ye padh lena 🤍  
+    bina kisi pressure ke.
+  </p>
+  <button class="next" onclick="go2()">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" style="display:none;">
+  <div class="rose">🤍🌹🤍</div>
+  <h2>Maafi 🤍</h2>
+  <p>
+    Mujhse jo bhi galti hui  
+    wo jaan-bujh kar nahi thi 🌸  
+    <br><br>
+    Main tumhara reply ka wait kar raha hoon…
+  </p>
+  <button class="next" onclick="go3()">Next</button>
+  <button class="no" id="noBtn" onclick="runNo()">No</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="p3" style="display:none;">
+  <div class="rose">🌹🤍🌹</div>
+  <h2>Happy Rose Day Radhika</h2>
+  <p>
+    Ye gulab sirf phool nahi 🌹  
+    balki meri taraf se  
+    ek shaant si feeling hai 🌸  
+    <br><br>
+    Tum mere liye important ho 🤍
+  </p>
+  <button class="next" onclick="go4()">Next</button>
+</div>
+
+<!-- PAGE 4 -->
+<div id="p4" style="display:none;">
+  <div class="rose">❤️🌹❤️</div>
+  <h2>Thank You Radhika</h2>
+  <p>
+    Itna padhne ke liye shukriya 🤍  
+    <br><br>
+    Happy Rose Day 🌹
+  </p>
+</div>
+
+</div>
+
+<script>
+function go2(){
+  document.getElementById("p1").style.display="none";
+  document.getElementById("p2").style.display="block";
+}
+function go3(){
+  document.getElementById("p2").style.display="none";
+  document.getElementById("p3").style.display="block";
+}
+function go4(){
+  document.getElementById("p3").style.display="none";
+  document.getElementById("p4").style.display="block";
+}
+
+function runNo(){
+  const btn = document.getElementById("noBtn");
+  const text = document.getElementById("bigText");
+
+  text.style.display = "block";
+
+  const x = Math.random()*200 - 100;
+  const y = Math.random()*150 - 75;
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+}
+</script>
+
+</body>
+</html>
